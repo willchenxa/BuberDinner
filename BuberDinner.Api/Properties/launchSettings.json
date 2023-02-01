@@ -9,9 +9,17 @@
     }
   },
   "profiles": {
+    "BuberDinner.Api": {
+      "commandName": "Project",
+      "launchUrl": "swagger",
+      "applicationUrl": "http://localhost:5046",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true
+    },
     "http": {
       "commandName": "Project",
-      "launchBrowser": true,
       "launchUrl": "swagger",
       "applicationUrl": "http://localhost:5046",
       "environmentVariables": {

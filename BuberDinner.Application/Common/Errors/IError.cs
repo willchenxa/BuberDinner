@@ -1,6 +1,6 @@
-using System.Net;
+//using System.Net;
 
-namespace BuberDinner.Application.Common.Errors;
+//namespace BuberDinner.Application.Common.Errors;
 
 // public interface IError
 // {

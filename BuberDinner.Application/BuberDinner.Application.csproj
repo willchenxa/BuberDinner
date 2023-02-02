@@ -15,9 +15,18 @@
     <PackageReference Include="FluentResults" Version="3.15.1" />
     <PackageReference Include="mediatR" Version="11.1.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
     <PackageReference Include="oneof" Version="3.0.223" />
-    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="5.0.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.26.0" />
+    <PackageReference Include="FluentValidation" Version="11.4.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.4.0" />
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Common\Behaviors\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Common\Behaviors\" />
+  </ItemGroup>
 </Project>

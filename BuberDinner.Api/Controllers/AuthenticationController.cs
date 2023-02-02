@@ -18,13 +18,15 @@ public class AuthenticationController : ApiController
  public AuthenticationController(IMediator mediator, IMapper mapper)
  {
   _mediator = mediator;
-        _mapper = mapper;
+  _mapper = mapper;
  }
 
  [Route("register")]
  public async Task<IActionResult> Register(RegisterRequest request)
  {
-        var command = _mapper.Map<RegisterCommand>(request);
+   var command = _mapper.Map<RegisterCommand>(request);
+  //var command = new RegisterCommand(request.FirstName, request.LastName, request.Email, request.Password);
+
   ErrorOr<AuthenticationResult> authResult = await _mediator.Send(command);
 
   return authResult.Match(
@@ -72,7 +74,9 @@ public class AuthenticationController : ApiController
  [Route("login")]
  public async Task<IActionResult> Login(LoginRequest request)
  {
-        var query = _mapper.Map<LoginQuery>(request);
+  var query = _mapper.Map<LoginQuery>(request);
+  
+  //var query = new LoginQuery(request.Email, request.Password);
 
   ErrorOr<AuthenticationResult> authResult = await _mediator.Send(query);
 

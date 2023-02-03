@@ -7,20 +7,20 @@ namespace BuberDinner.Api.Controllers;
 public class ErrorController : ControllerBase
 {
 
- [Route("/error")]
- public IActionResult Error()
- {
-  Exception? exception = HttpContext.Features.Get<IExceptionHandlerFeature>()?.Error;
-  // debug:
-  //return Problem(title: exception?.Message);
+    [Route("/error")]
+    public IActionResult Error()
+    {
+        Exception? exception = HttpContext.Features.Get<IExceptionHandlerFeature>()?.Error;
+        // debug:
+        //return Problem(title: exception?.Message);
 
-  var (statusCode, message) = exception switch
-  {
-   IServiceException serviceException => ((int)serviceException.StatusCode, serviceException.ErrorMessage),
-   _ => (StatusCodes.Status500InternalServerError, "An unexpected error occurred")
-  };
+        var (statusCode, message) = exception switch
+        {
+            IServiceException serviceException => ((int)serviceException.StatusCode, serviceException.ErrorMessage),
+            _ => (StatusCodes.Status500InternalServerError, "An unexpected error occurred")
+        };
 
-  return Problem();
- }
+        return Problem();
+    }
 }
 

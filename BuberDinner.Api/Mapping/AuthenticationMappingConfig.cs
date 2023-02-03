@@ -7,12 +7,8 @@ using Mapster;
 
 namespace BuberDinner.Api.Mapping
 {
-	public class AuthenticationMappingConfig : IRegister
-	{
-		public AuthenticationMappingConfig()
-		{
-		}
-
+    public class AuthenticationMappingConfig : IRegister
+    {
         public void Register(TypeAdapterConfig config)
         {
             config.NewConfig<RegisterRequest, RegisterCommand>();

@@ -5,8 +5,8 @@ namespace BuberDinner.Api.Controllers;
 [Route("[controller]")]
 public class DinnersController : ApiController
 {
- public IActionResult ListDinners()
- {
-  return Ok();
- }
+    public IActionResult ListDinners()
+    {
+        return Ok();
+    }
 }

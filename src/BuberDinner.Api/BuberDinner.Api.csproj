@@ -7,6 +7,8 @@
     <UserSecretsId>c298111e-79f4-4ebe-acc3-d15709cae52e</UserSecretsId>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
     <PackageReference Include="ErrorOr" Version="1.2.1" />
     <PackageReference Include="FluentResults" Version="3.15.1" />

@@ -12,4 +12,3 @@ public class RegisterCommandValidator : AbstractValidator<RegisterCommand>
         RuleFor(x => x.Password).NotEmpty();
     }
 }
-

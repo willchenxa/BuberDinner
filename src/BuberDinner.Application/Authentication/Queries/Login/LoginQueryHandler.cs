@@ -4,7 +4,7 @@ using BuberDinner.Application.Authentication.Common;
 using BuberDinner.Application.Common.Interfaces.Authentication;
 using BuberDinner.Application.Common.Interfaces.Persistence;
 using BuberDinner.Domain.Common.Errors;
-using BuberDinner.Domain.Entities;
+using BuberDinner.Domain.User;
 
 namespace BuberDinner.Application.Authentication.Queries.Login;
 
@@ -24,6 +24,8 @@ public class LoginQueryHandler :
 
     public async Task<ErrorOr<AuthenticationResult>> Handle(LoginQuery query, CancellationToken cancellationToken)
     {
+        await Task.CompletedTask;
+
         // validate the user exists
         if (_userRepository.GetUserByEmail(query.Email) is not User user)
         {

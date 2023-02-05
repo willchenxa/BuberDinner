@@ -1,9 +1,9 @@
+using ErrorOr;
 using BuberDinner.Application.Authentication.Common;
 using BuberDinner.Application.Common.Interfaces.Authentication;
 using BuberDinner.Application.Common.Interfaces.Persistence;
 using BuberDinner.Domain.Common.Errors;
-using BuberDinner.Domain.Entities;
-using ErrorOr;
+using BuberDinner.Domain.User;
 
 namespace BuberDinner.Application.Services.Authentication.Queries;
 
@@ -39,8 +39,7 @@ public class AuthenticationQueryService : IAuthenticationQueryService
         // create JWT token
         var token = _jwtTokenGenerator.GenerateToken(user);
 
-        return new AuthenticationResult(
-         user,
-         token);
+        return new AuthenticationResult(user,
+                                        token);
     }
 }

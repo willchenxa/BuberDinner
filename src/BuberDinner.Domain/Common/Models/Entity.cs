@@ -5,7 +5,7 @@ where TId : notnull
 {
     public TId Id { get; private set; }
 
-    public Entity(TId id)
+    protected Entity(TId id)
     {
         Id = id;
     }

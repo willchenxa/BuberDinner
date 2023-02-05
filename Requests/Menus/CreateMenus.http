@@ -1,0 +1,24 @@
+@host=http://localhost:5046
+@token=something
+@hostId=1
+
+GET {{host}}/{{hostId}}/menus
+Content-Type: application/json
+Authorization: bearer {{token}}
+{
+ "name": "Yummy Menu",
+ "description": "A menu with yummy food",
+ "sections": [
+  {
+   "name": "Appetizers",
+   "description": "Starters",
+   "items": [
+    {
+     "name": "Fried Pickles",
+     "description": "Deep fried pickles",
+     "price": 5.99
+    }
+   ]
+  }
+ ]
+}

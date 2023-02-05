@@ -1,18 +1,14 @@
-﻿using BuberDinner.Api.Common.Errors;
-using BuberDinner.Api.Mapping;
-using Microsoft.AspNetCore.Mvc.Infrastructure;
+﻿using BuberDinner.Api.Mapping;
 
-namespace BuberDinner.Api
+namespace BuberDinner.Api;
+
+public static class DependencyInjection
 {
-    public static class DependencyInjection
+    public static IServiceCollection AddPresentation(this IServiceCollection services)
     {
-        public static IServiceCollection AddPresentation(this IServiceCollection services)
-        {
-            services.AddControllers();
-            services.AddMapping();
+        services.AddControllers();
+        services.AddMapping();
 
-            return services;
-        }
+        return services;
     }
 }
-

@@ -10,4 +10,3 @@ public class LoginQueryValidator : AbstractValidator<LoginQuery>
         RuleFor(x => x.Password).NotEmpty();
     }
 }
-

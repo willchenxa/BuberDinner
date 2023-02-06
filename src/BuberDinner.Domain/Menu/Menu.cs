@@ -21,16 +21,27 @@ public sealed class Menu : AggregateRoot<MenuId>
     public IReadOnlyList<MenuReviewId> MenuReviewIds => _menuReviewIds.AsReadOnly();
     public DateTime CreatedDateTime { get; }
     public DateTime UpdatedDateTime { get; }
-    private Menu(
-        MenuId id,
-        string name,
-        string description,
-        float averageRating,
-        List<MenuSection> menuSection) : base(id)
+    private Menu(MenuId id,
+                HostId hostId,
+                 string name,
+                 string description,
+                 float averageRating,
+                 List<MenuSection> menuSection) : base(id)
     {
         Name = name;
+        HostId = hostId;
         Description = description;
         AverageRating = averageRating;
         _menuSection = menuSection;
+    }
+
+    public static Menu Create(HostId hostId,
+        string name,
+        string description,
+        float averageRating,
+        List<MenuSection> menuSection
+    )
+    {
+        return new Menu(MenuId.CreateUnique(), hostId, name, description, averageRating, menuSection);
     }
 }

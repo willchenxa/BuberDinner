@@ -17,9 +17,10 @@ public class MenusController : ApiController
         _mapper = mapper;
         _mediator = mediator;
     }
+
     [HttpPost]
     public async Task<IActionResult> CreateMenu(
-        CreateMenuRequest request,
+        [FromBody] CreateMenuRequest request,
         string hostId)
     {
         var command = _mapper.Map<CreateMenuCommand>((request, hostId));

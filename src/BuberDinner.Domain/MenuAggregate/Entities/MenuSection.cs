@@ -11,7 +11,7 @@ public sealed class MenuSection : Entity<MenuSectionId>
 
     public string Description { get; }
 
-    public IReadOnlyList<MenuItem>? Items => _menuItems?.AsReadOnly();
+    public IReadOnlyList<MenuItem>? MenuItems => _menuItems?.AsReadOnly();
 
     /// <summary>
     /// Initializes a new instance of the <see cref="MenuSection"/> class.

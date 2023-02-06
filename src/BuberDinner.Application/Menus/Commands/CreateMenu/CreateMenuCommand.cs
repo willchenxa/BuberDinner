@@ -14,4 +14,5 @@ public record MenuSectionCommand(string Name,
                                  List<MenuItemCommand> MenuItems);
 
 public record MenuItemCommand(string Name,
-                              string Description);
+                              string Description,
+                              decimal Price);

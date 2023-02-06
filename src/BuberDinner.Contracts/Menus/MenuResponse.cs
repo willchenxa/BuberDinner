@@ -4,7 +4,7 @@ public record MenuResponse(string Id,
                            string Name,
                            string Description,
                            float? AverageRating,
-                           List<MenuSectionResponse> Sections,
+                           List<MenuSectionResponse> MenuSection,
                            string HostId,
                            List<string> DinnerIds,
                            List<string> MenuReviewIds,
@@ -14,8 +14,9 @@ public record MenuResponse(string Id,
 public record MenuSectionResponse(string Id,
                                   string Name,
                                   string Description,
-                                  List<MenuItemResponse> Items);
+                                  List<MenuItemResponse> MenuItems);
 
 public record class MenuItemResponse(string Id,
                                      string Name,
-                                     string Description);
+                                     string Description,
+                                     decimal Price);

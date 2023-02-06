@@ -8,23 +8,29 @@ public sealed class MenuItem : Entity<MenuItemId>
     private MenuItem(
         MenuItemId menuItemId,
         string name,
-        string description) : base(menuItemId)
+        string description,
+        decimal price) : base(menuItemId)
     {
         Name = name;
         Description = description;
+        Price = price;
     }
 
     public string Name { get; }
 
     public string Description { get; }
 
+    public decimal Price { get; }
+
     public static MenuItem Create(
         string name,
-        string description)
+        string description,
+        decimal price)
     {
         return new(
             MenuItemId.CreateUnique(),
             name,
-            description);
+            description,
+            price);
     }
 }

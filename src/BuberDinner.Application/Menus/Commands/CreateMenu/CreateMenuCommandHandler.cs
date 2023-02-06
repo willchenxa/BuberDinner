@@ -30,7 +30,10 @@ public class CreateMenuCommandHandler : IRequestHandler<CreateMenuCommand, Error
                 section.Description,
                 section.MenuItems.ConvertAll(item => MenuItem.Create(
                     item.Name,
-                    item.Description)))));
+                    item.Description,
+                    item.Price)))),
+            DateTime.UtcNow,
+            DateTime.UtcNow);
 
         // Persist Menu
         _menuRepository.Add(menu);

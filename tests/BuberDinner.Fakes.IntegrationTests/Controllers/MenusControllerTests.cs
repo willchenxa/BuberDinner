@@ -23,7 +23,6 @@ public class MenusControllerTests : IClassFixture<WebApplicationFactory<WebMarke
     public MenusControllerTests(WebApplicationFactory<WebMarker> factory)
     {
         _httpClient = factory.CreateDefaultClient();
-        _httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {TestData.Token}");
         _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
     }
     
@@ -31,6 +30,8 @@ public class MenusControllerTests : IClassFixture<WebApplicationFactory<WebMarke
     public async Task Response_WhenRequestIsNotValid_ReturnBadRequest()
     {
         // Arrange
+        _httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {TestData.Token}");
+
         var requst = JsonConvert.SerializeObject(
             new CreateMenuRequest("Starter", "a delicious starter", new List<MenuSection>()));
         var content = new StringContent(requst, Encoding.UTF8, "application/json");
@@ -52,6 +53,8 @@ public class MenusControllerTests : IClassFixture<WebApplicationFactory<WebMarke
     public async Task Response_WhenRequestIsValid_ReturnSuccessful()
     {
         // Arrange
+        _httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {TestData.Token}");
+
         var requst = JsonConvert.SerializeObject(
             new CreateMenuRequest("Dinner", "a delicious dinner", new List<MenuSection>
             {

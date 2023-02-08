@@ -1,7 +1,10 @@
+using System.Diagnostics.CodeAnalysis;
+
 using BuberDinner.Domain.Common.Models;
 
 namespace BuberDinner.Domain.MenuReview.ValueObjects;
 
+[ExcludeFromCodeCoverage]
 public sealed class MenuReviewId : ValueObject
 {
     public Guid Value { get; }

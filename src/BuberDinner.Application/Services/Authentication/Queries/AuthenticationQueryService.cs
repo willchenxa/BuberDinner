@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 using ErrorOr;
 using BuberDinner.Application.Authentication.Common;
 using BuberDinner.Application.Common.Interfaces.Authentication;
@@ -5,8 +7,11 @@ using BuberDinner.Application.Common.Interfaces.Persistence;
 using BuberDinner.Domain.Common.Errors;
 using BuberDinner.Domain.User;
 
+using Microsoft.AspNetCore.Routing;
+
 namespace BuberDinner.Application.Services.Authentication.Queries;
 
+[ExcludeFromCodeCoverage]
 public class AuthenticationQueryService : IAuthenticationQueryService
 {
     private readonly IJwtTokenGenerator _jwtTokenGenerator;

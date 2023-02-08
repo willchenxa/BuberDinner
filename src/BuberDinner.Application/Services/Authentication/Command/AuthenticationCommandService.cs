@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 using ErrorOr;
 using BuberDinner.Application.Authentication.Common;
 using BuberDinner.Application.Common.Interfaces.Authentication;
@@ -6,6 +8,8 @@ using BuberDinner.Domain.Common.Errors;
 using BuberDinner.Domain.User;
 
 namespace BuberDinner.Application.Services.Authentication.Command;
+
+[ExcludeFromCodeCoverage]
 
 public class AuthenticationCommandService : IAuthenticationCommandService
 {

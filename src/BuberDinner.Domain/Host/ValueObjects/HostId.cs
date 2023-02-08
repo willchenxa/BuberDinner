@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 using BuberDinner.Domain.Common.Models;
 
 namespace BuberDinner.Domain.Host.ValueObjects;

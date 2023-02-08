@@ -1,4 +1,6 @@
 
+using System.Diagnostics.CodeAnalysis;
+
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
@@ -6,6 +8,7 @@ using System.Net;
 
 namespace BuberDinner.Api.Filters;
 
+[ExcludeFromCodeCoverage]
 public class ErrorHandlingFilterAttribute : ExceptionFilterAttribute
 {
     public override void OnException(ExceptionContext context)

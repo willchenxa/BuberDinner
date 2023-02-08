@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace BuberDinner.Domain.Common.Models;
 
 public abstract class ValueObject : IEquatable<ValueObject>
@@ -39,6 +41,7 @@ public abstract class ValueObject : IEquatable<ValueObject>
     }
 }
 
+[ExcludeFromCodeCoverage]
 public class Price : ValueObject
 {
     public decimal Amount { get; }

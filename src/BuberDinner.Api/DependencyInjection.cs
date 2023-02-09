@@ -30,8 +30,8 @@ public static class DependencyInjection
                 new OpenApiInfo { Title = ApiInfo.Name, Version = ApiInfo.Version, Description = ApiInfo.Description });
 
             // Use XML code documentation in generating OpenApi sepc.
-            //var xmlFileName = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-            //options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFileName));
+            var xmlFileName = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+            options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFileName));
 
             options.EnableAnnotations();
             options.ExampleFilters();

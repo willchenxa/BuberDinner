@@ -29,8 +29,4 @@
     <ProjectReference Include="..\..\src\BuberDinner.Api\BuberDinner.Api.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Application" />
-  </ItemGroup>
-
 </Project>

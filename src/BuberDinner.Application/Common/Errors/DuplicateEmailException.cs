@@ -1,7 +1,9 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Net;
 
 namespace BuberDinner.Application.Common.Errors;
 
+[ExcludeFromCodeCoverage]
 public class DuplicateEmailException : Exception, IServiceException
 {
     public DuplicateEmailException() : base()

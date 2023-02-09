@@ -1,3 +1,5 @@
+using BuberDinner.Api.Swagger;
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using ErrorOr;
@@ -7,6 +9,8 @@ using BuberDinner.Application.Authentication.Commands.Register;
 using BuberDinner.Application.Authentication.Common;
 using BuberDinner.Application.Authentication.Queries.Login;
 using BuberDinner.Contracts.Authentication;
+
+using Swashbuckle.AspNetCore.Filters;
 
 namespace BuberDinner.Api.Controllers;
 
@@ -24,6 +28,12 @@ public class AuthenticationController : ApiController
     }
 
     [Route("register")]
+    [ProducesResponseType((typeof(AuthenticationResponse)), StatusCodes.Status200OK)]
+    [ProducesResponseType((typeof(ProblemDetails)), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType((typeof(ProblemDetails)), StatusCodes.Status500InternalServerError)]
+    [SwaggerResponseExample(StatusCodes.Status200OK, typeof(AuthenticationResponseExample))]
+    [ProducesDefaultResponseType]
+    [HttpPost]
     public async Task<IActionResult> Register(RegisterRequest request)
     {
         var command = _mapper.Map<RegisterCommand>(request);
@@ -36,6 +46,12 @@ public class AuthenticationController : ApiController
     }
 
     [Route("login")]
+    [ProducesResponseType((typeof(AuthenticationResponse)), StatusCodes.Status200OK)]
+    [ProducesResponseType((typeof(ProblemDetails)), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType((typeof(ProblemDetails)), StatusCodes.Status500InternalServerError)]
+    [SwaggerResponseExample(StatusCodes.Status200OK, typeof(AuthenticationResponseExample))]
+    [ProducesDefaultResponseType]
+    [HttpPost]
     public async Task<IActionResult> Login(LoginRequest request)
     {
         var query = _mapper.Map<LoginQuery>(request);

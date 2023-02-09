@@ -1,12 +1,16 @@
+using BuberDinner.Api.Swagger;
+
 using Microsoft.AspNetCore.Mvc;
 using MapsterMapper;
 using MediatR;
 using BuberDinner.Application.Menus.Commands.CreateMenu;
 using BuberDinner.Contracts.Menus;
 
+using Swashbuckle.AspNetCore.Filters;
+
 namespace BuberDinner.Api.Controllers;
 
-[Route("host/{hostId}/menus")]
+//[Route("host/{hostId}/menus")]
 public class MenusController : ApiController
 {
     private readonly IMapper _mapper;
@@ -18,7 +22,12 @@ public class MenusController : ApiController
         _mediator = mediator;
     }
 
-    [HttpPost]
+    [HttpPost("host/{hostId}/menus")]
+    [ProducesResponseType((typeof(MenuResponse)), StatusCodes.Status200OK)]
+    [ProducesResponseType((typeof(ProblemDetails)), StatusCodes.Status400BadRequest)]
+    [ProducesResponseType((typeof(ProblemDetails)), StatusCodes.Status500InternalServerError)]
+    [SwaggerResponseExample(StatusCodes.Status200OK, typeof(CreateMenuResponseExample))]
+    [ProducesDefaultResponseType]
     public async Task<IActionResult> CreateMenu(
         [FromBody] CreateMenuRequest request,
         string hostId)

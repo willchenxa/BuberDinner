@@ -24,10 +24,10 @@ public class AuthenticationCommandService : IAuthenticationCommandService
         _userRepository = userRepository;
     }
 
-    public ErrorOr<AuthenticationResult> Register(string firstName, string lastName, string email, string password)
+    public async Task<ErrorOr<AuthenticationResult>> Register(string firstName, string lastName, string email, string password)
     {
         // validate the user doesn't exist
-        if (_userRepository.GetUserByEmail(email) is not null)
+        if (await _userRepository.GetUserByEmail(email) is not null)
         {
             return Errors.User.DuplicateEmail;
         }

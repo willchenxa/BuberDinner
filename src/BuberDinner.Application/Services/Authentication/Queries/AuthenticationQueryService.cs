@@ -25,10 +25,10 @@ public class AuthenticationQueryService : IAuthenticationQueryService
         _userRepository = userRepository;
     }
 
-    public ErrorOr<AuthenticationResult> Login(string email, string password)
+    public async Task<ErrorOr<AuthenticationResult>> Login(string email, string password)
     {
         // validate the user exists
-        if (_userRepository.GetUserByEmail(email) is not User user)
+        if (await _userRepository.GetUserByEmail(email) is not User user)
         {
             //throw new Exception("User with given email does not exist.");
             return Errors.Authentication.InvalidCredential;

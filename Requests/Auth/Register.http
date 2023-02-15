@@ -1,5 +1,6 @@
-@host=http://localhost:5046
+@host=http//:localhost:5046
 
+###
 POST {{host}}/auth/register
 Content-Type: application/json
 
@@ -11,7 +12,6 @@ Content-Type: application/json
 }
 
 ###
-
 POST {{host}}/auth/register
 Content-Type: application/json
 

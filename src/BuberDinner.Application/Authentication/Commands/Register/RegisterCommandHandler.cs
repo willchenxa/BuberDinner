@@ -29,7 +29,8 @@ public class RegisterCommandHandler :
         await Task.CompletedTask;
 
         // validate the user doesn't exist
-        if (_userRepository.GetUserByEmail(command.Email) is not null)
+        var existingUser = await _userRepository.GetUserByEmail(command.Email);
+        if (existingUser != null)
         {
             return Errors.User.DuplicateEmail;
         }

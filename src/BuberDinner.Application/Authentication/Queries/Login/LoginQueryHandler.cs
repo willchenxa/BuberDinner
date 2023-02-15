@@ -27,7 +27,7 @@ public class LoginQueryHandler :
         await Task.CompletedTask;
 
         // validate the user exists
-        if (_userRepository.GetUserByEmail(query.Email) is not User user)
+        if (await _userRepository.GetUserByEmail(query.Email) is not User user)
         {
             //throw new Exception("User with given email does not exist.");
             return Errors.Authentication.InvalidCredential;

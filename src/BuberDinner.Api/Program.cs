@@ -5,7 +5,7 @@ using BuberDinner.Infrastructure;
 var builder = WebApplication.CreateBuilder(args);
 {
     builder.Configuration.AddEnvironmentVariables();
-    
+
     builder.Services
           .AddPresentation()
           .AddApplication()
@@ -22,7 +22,7 @@ var app = builder.Build();
             options.RoutePrefix = string.Empty;
         });
     }
-    
+
     app.UseExceptionHandler("/error");
 
     app.UseHttpsRedirection();

@@ -1,6 +1,5 @@
 using BuberDinner.Application.Common.Interfaces.Persistence;
 using BuberDinner.Domain.User;
-using BuberDinner.Infrastructure.Persistence.Common;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -8,9 +7,9 @@ namespace BuberDinner.Infrastructure.Persistence.Users;
 
 public class UserRepository : IUserRepository
 {
-    private readonly BubberDinnerDbContext _userDbContext;
+    private readonly BuberDinnerDbContext _userDbContext;
 
-    public UserRepository(BubberDinnerDbContext userDbContext)
+    public UserRepository(BuberDinnerDbContext userDbContext)
     {
         _userDbContext = userDbContext;
     }
@@ -23,7 +22,8 @@ public class UserRepository : IUserRepository
 
     public async Task<User?> GetUserByEmail(string email)
     {
-        return await _userDbContext.Users.FirstOrDefaultAsync(user =>
+        var result =  await _userDbContext.Users.FirstOrDefaultAsync(user =>
             user.Email.Equals(email, StringComparison.InvariantCultureIgnoreCase));
+        return result;
     }
 };

@@ -35,10 +35,10 @@ public class AuthMappingTests
             LastName = "LastName",
             Password = "Password"
         }, "token");
-        
+
         // Act
         var response = _mapper.Map<AuthenticationResponse>(request);
-        
+
         // Assert
         response.Should().NotBeNull();
         response.Email.Should().BeEquivalentTo("email@address");

@@ -16,11 +16,11 @@ public class MenuMappingConfig : IRegister
         .Map(dest => dest, src => src.Request);
 
         config.NewConfig<Menu, MenuResponse>()
-        .Map(dest => dest.Id, src => src.Id.Value)
-        .Map(dest => dest.HostId, src => src.HostId.Value)
-        .Map(dest => dest.AverageRating, src => src.AverageRating)
-        .Map(dest => dest.DinnerIds, src => src.DinnerIds.Select(dinnerId => dinnerId.Value))
-        .Map(dest => dest.MenuReviewIds, src => src.MenuReviewIds.Select(menuId => menuId.Value));
+            .Map(dest => dest.Id, src => src.Id.Value)
+            .Map(dest => dest.HostId, src => src.HostId.Value)
+            .Map(dest => dest.AverageRating, src => src.AverageRating);
+        //.Map(dest => dest.DinnerIds, src => src.DinnerIds.Select(dinnerId => dinnerId.Value))
+        //.Map(dest => dest.MenuReviewIds, src => src.MenuReviewIds.Select(menuId => menuId.Value));
 
         config.NewConfig<MenuSection, MenuSectionResponse>()
         .Map(dest => dest.Id, src => src.Id.Value);

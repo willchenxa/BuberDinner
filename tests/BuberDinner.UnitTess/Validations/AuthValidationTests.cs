@@ -50,10 +50,10 @@ public class AuthValidationTests
     public void When_LoginQuery_Return_ValidateResult(LoginQuery query, bool isValid, int numberOfErrors, string validationMessage)
     {
         // Arrange
-        
+
         // Act
         var validateResult = LoginQueryValidateModel(query);
-        
+
         // Assert
         validateResult.IsValid.Should().Be(isValid);
         validateResult.Errors.Count.Should().Be(numberOfErrors);

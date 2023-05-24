@@ -11,7 +11,6 @@ using BuberDinner.Infrastructure.Persistence;
 using BuberDinner.Infrastructure.Persistence.Menus;
 using BuberDinner.Infrastructure.Persistence.Users;
 using BuberDinner.Infrastructure.Services;
-using BuberDinner.Infrastructure.Persistence.Common;
 using Microsoft.EntityFrameworkCore;
 
 namespace BuberDinner.Infrastructure;
@@ -33,16 +32,16 @@ public static class DependencyInjection
         return services;
     }
 
-    public static IServiceCollection AddPersistance(this IServiceCollection services)
+    private static IServiceCollection AddPersistance(this IServiceCollection services)
     {
-        services.AddDbContext<BubberDinnerDbContext>(options => options.UseInMemoryDatabase("Users"));
+        services.AddDbContext<BuberDinnerDbContext>(options => options.UseInMemoryDatabase("BuberDinner"));
         services.AddScoped<IUserRepository, UserRepository>();
         services.AddScoped<IMenuRepository, MenuRepository>();
 
         return services;
     }
 
-    public static IServiceCollection AddAuth(
+    private static IServiceCollection AddAuth(
     this IServiceCollection services,
     ConfigurationManager configuration
    )

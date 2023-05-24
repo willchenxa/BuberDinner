@@ -27,7 +27,11 @@ public class LoginQueryHandler :
         await Task.CompletedTask;
 
         // validate the user exists
-        if (await _userRepository.GetUserByEmail(query.Email) is not User user)
+        try
+        {
+            var user = await _userRepository.GetUserByEmail(query.Email);
+
+        if (user is not null)
         {
             //throw new Exception("User with given email does not exist.");
             return Errors.Authentication.InvalidCredential;
@@ -46,5 +50,12 @@ public class LoginQueryHandler :
         return new AuthenticationResult(
          user,
          token);
+        }
+        catch (Exception e)
+        {
+            var message = e.Message;
+        }
+
+        return new ErrorOr<AuthenticationResult>();
     }
 }

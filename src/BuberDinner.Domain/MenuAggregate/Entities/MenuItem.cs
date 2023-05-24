@@ -5,6 +5,7 @@ namespace BuberDinner.Domain.MenuAggregate.Entities;
 
 public sealed class MenuItem : Entity<MenuItemId>
 {
+
     private MenuItem(
         MenuItemId menuItemId,
         string name,

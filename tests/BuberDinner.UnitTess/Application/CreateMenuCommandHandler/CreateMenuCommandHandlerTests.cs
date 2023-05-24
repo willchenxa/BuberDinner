@@ -1,5 +1,6 @@
 using BuberDinner.Application.Common.Interfaces.Persistence;
 using BuberDinner.Application.Menus.Commands.CreateMenu;
+using BuberDinner.Infrastructure.Persistence;
 using BuberDinner.Infrastructure.Persistence.Menus;
 
 using FluentAssertions;
@@ -13,9 +14,9 @@ public class CreateMenuCommandHandlerTests
     private readonly IMenuRepository _menuRepository;
     private readonly CreateMenuCommandHandler _handler;
 
-    public CreateMenuCommandHandlerTests()
+    public CreateMenuCommandHandlerTests(BuberDinnerDbContext context)
     {
-        _menuRepository = new MenuRepository();
+        _menuRepository = new MenuRepository(context);
         _handler = new CreateMenuCommandHandler(_menuRepository);
     }
 

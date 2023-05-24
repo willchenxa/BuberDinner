@@ -5,6 +5,8 @@ where TId : notnull
 {
     public TId Id { get; private set; }
 
+    protected Entity() { }
+
     protected Entity(TId id)
     {
         Id = id;
